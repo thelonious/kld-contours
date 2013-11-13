@@ -1,0 +1,25 @@
+{
+  "name": "kld-contours",
+  "version": "0.0.1",
+  "description": "A collection of classes to represent and manipulate various vector shapes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thelonious/kld-contours"
+  },
+  "keywords": [
+    "vectors",
+    "bezier"
+  ],
+  "author": "Kevin Lindsey",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/thelonious/kld-contours/issues"
+  },
+  "dependencies": {
+    "kld-polynomial": "0.0.2"
+  }
+}
