@@ -20,6 +20,7 @@
     "url": "https://github.com/thelonious/kld-contours/issues"
   },
   "dependencies": {
-    "kld-polynomial": "0.0.2"
+    "kld-polynomial": "0.0.2",
+    "kld-affine": "0.0.6"
   }
 }

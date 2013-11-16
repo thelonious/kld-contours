@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    onload="sayHello(evt)">
+
+    <defs>
+        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
+        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
+        <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
+        <script xlink:href="../lib/CubicBezier2D.js"/>
+        <script><![CDATA[
+            var svgns = "http://www.w3.org/2000/svg";
+
+            function applyNew(ctor, args) {
+                var newArgs = [null].concat(args);
+                var ctorFunction = ctor.bind.apply(ctor, newArgs);
+
+                return new ctorFunction();
+            }
+
+            function sayHello() {
+                var original = document.getElementById("original");
+                var pathSegList = original.pathSegList;
+                var parts = [];
+
+                for (var i = 0; i < pathSegList.numberOfItems; i++) {
+                    var item = pathSegList.getItem(i);
+                    var cmd = item.pathSegTypeAsLetter;
+
+                    if (cmd == "M") {
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                    else if (cmd == "C") {
+                        parts.push(new Point2D(item.x1, item.y1));
+                        parts.push(new Point2D(item.x2, item.y2));
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                }
+
+                //var b1 = new CubicBezier2D(
+                //    new Point2D(10, 100),
+                //    new Point2D(10, 0),
+                //    new Point2D(110, 0),
+                //    new Point2D(110, 50)
+                //);
+                var b1 = applyNew(CubicBezier2D, parts);
+                var b2 = b1.getAlignedBezier();
+
+                var path = document.createElementNS(svgns, "path");
+                path.setAttributeNS(null, "d", b2.toString());
+                path.setAttributeNS(null, "stroke", "blue");
+                path.setAttributeNS(null, "stroke-opacity", "0.5");
+                path.setAttributeNS(null, "stroke-width", "10");
+                path.setAttributeNS(null, "stroke-linecap", "round");
+                path.setAttributeNS(null, "fill", "none");
+
+                var world = document.getElementById("world");
+
+                world.appendChild(path);
+            }
+        ]]></script>
+    </defs>
+
+    <g id="world" transform="translate(100,100)">
+        <line x1="-50" x2="150" stroke="orange" stroke-width="5" stroke-opacity="0.25"/>
+        <circle r="10" fill="orange" fill-opacity="0.25"/>
+        <path id="original"
+            d="M10,100 C10,0 110,0 110,50"
+            stroke="red" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round"
+            fill="none"/>
+    </g>
+
+</svg>
