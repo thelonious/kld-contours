@@ -72,8 +72,6 @@
                 matrix = matrix.rotateFromVector(Vector2D.fromPoints(parts[0], parts[3]));
                 var transform = matrix.toString();
 
-                alert(transform);
-
                 var rect = document.createElementNS(svgns, "rect");
                 rect.setAttributeNS(null, "x", bbox2.x);
                 rect.setAttributeNS(null, "y", bbox2.y);
