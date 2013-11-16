@@ -8,7 +8,9 @@
         <script xlink:href="../../kld-affine/lib/Point2D.js"/>
         <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
         <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
+        <script xlink:href="../../kld-polynomial/lib/Polynomial.js"/>
         <script xlink:href="../lib/CubicBezier2D.js"/>
+        <script xlink:href="../lib/Rectangle2D.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
 
@@ -38,13 +40,21 @@
                     }
                 }
 
-                //var b1 = new CubicBezier2D(
-                //    new Point2D(10, 100),
-                //    new Point2D(10, 0),
-                //    new Point2D(110, 0),
-                //    new Point2D(110, 50)
-                //);
                 var b1 = applyNew(CubicBezier2D, parts);
+                var bbox1 = b1.getBoundingBox();
+
+                var world = document.getElementById("world");
+
+                var rect = document.createElementNS(svgns, "rect");
+                rect.setAttributeNS(null, "x", bbox1.x);
+                rect.setAttributeNS(null, "y", bbox1.y);
+                rect.setAttributeNS(null, "width", bbox1.width);
+                rect.setAttributeNS(null, "height", bbox1.height);
+                rect.setAttributeNS(null, "stroke", "green");
+                rect.setAttributeNS(null, "stroke-width", "1");
+                rect.setAttributeNS(null, "fill", "none");
+                world.appendChild(rect);
+
                 var b2 = b1.getAlignedBezier();
 
                 var path = document.createElementNS(svgns, "path");
@@ -54,10 +64,26 @@
                 path.setAttributeNS(null, "stroke-width", "10");
                 path.setAttributeNS(null, "stroke-linecap", "round");
                 path.setAttributeNS(null, "fill", "none");
-
-                var world = document.getElementById("world");
-
                 world.appendChild(path);
+
+                var bbox2 = b2.getBoundingBox();
+                var matrix = new Matrix2D();
+                matrix = matrix.translate(parts[0].x, parts[0].y);
+                matrix = matrix.rotateFromVector(Vector2D.fromPoints(parts[0], parts[3]));
+                var transform = matrix.toString();
+
+                alert(transform);
+
+                var rect = document.createElementNS(svgns, "rect");
+                rect.setAttributeNS(null, "x", bbox2.x);
+                rect.setAttributeNS(null, "y", bbox2.y);
+                rect.setAttributeNS(null, "width", bbox2.width);
+                rect.setAttributeNS(null, "height", bbox2.height);
+                rect.setAttributeNS(null, "stroke", "purple");
+                rect.setAttributeNS(null, "stroke-width", "1");
+                rect.setAttributeNS(null, "fill", "none");
+                rect.setAttributeNS(null, "transform", transform);
+                world.appendChild(rect);
             }
         ]]></script>
     </defs>
