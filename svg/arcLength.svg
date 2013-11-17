@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    onload="init(evt)">
+
+    <defs>
+        <g id="vertex">
+            <circle r="3" fill="none" stroke="green" stroke-width="1"/>
+            <circle r="1" fill="black"/>
+        </g>
+        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
+        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
+        <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
+        <script xlink:href="../../kld-polynomial/lib/Polynomial.js"/>
+        <script xlink:href="../../kld-polynomial/lib/SqrtPolynomial.js"/>
+        <script xlink:href="../lib/CubicBezier2D.js"/>
+        <script xlink:href="../lib/Rectangle2D.js"/>
+        <script><![CDATA[
+            var svgns = "http://www.w3.org/2000/svg";
+            var xlinkns = "http://www.w3.org/1999/xlink";
+            var world;
+
+            function init() {
+                world = document.getElementById("world");
+
+                var original = document.getElementById("original");
+                var pathSegList = original.pathSegList;
+                var parts = [];
+
+                for (var i = 0; i < pathSegList.numberOfItems; i++) {
+                    var item = pathSegList.getItem(i);
+                    var cmd = item.pathSegTypeAsLetter;
+
+                    if (cmd == "M") {
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                    else if (cmd == "C") {
+                        parts.push(new Point2D(item.x1, item.y1));
+                        parts.push(new Point2D(item.x2, item.y2));
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                }
+
+                var b1 = applyNew(CubicBezier2D, parts);
+                var arcLengthPoly = b1.getArcLengthPolynomial();
+                var arcLength = b1.arcLength;
+
+                for (var i = 0; i <= 10; i++) {
+                    var len = arcLength * i / 10;
+                    var t = b1.getParameterFromArcLength(len);
+                    var p = b1.getPointAtParameter(t);
+
+                    plotPoint(p);
+                }
+            }
+
+            function plotPoint(point) {
+                var use = document.createElementNS(svgns, "use");
+
+                use.setAttributeNS(null, "x", point.x);
+                use.setAttributeNS(null, "y", point.y);
+                use.setAttributeNS(xlinkns, "href", "#vertex");
+
+                world.appendChild(use);
+            }
+
+            function applyNew(ctor, args) {
+                var newArgs = [null].concat(args);
+                var ctorFunction = ctor.bind.apply(ctor, newArgs);
+
+                return new ctorFunction();
+            }
+        ]]></script>
+    </defs>
+
+    <g id="world" transform="translate(100,100)">
+        <path id="original"
+            d="M10,100 C10,0 110,0 110,50"
+            stroke="red" stroke-width="1" stroke-linecap="round" stroke-dasharray="5 2"
+            fill="none"/>
+    </g>
+
+</svg>
