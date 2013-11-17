@@ -52,6 +52,7 @@
                 rect.setAttributeNS(null, "height", bbox1.height);
                 rect.setAttributeNS(null, "stroke", "green");
                 rect.setAttributeNS(null, "stroke-width", "1");
+                rect.setAttributeNS(null, "stroke-opacity", "0.25");
                 rect.setAttributeNS(null, "fill", "none");
                 world.appendChild(rect);
 
@@ -61,16 +62,14 @@
                 path.setAttributeNS(null, "d", b2.toString());
                 path.setAttributeNS(null, "stroke", "blue");
                 path.setAttributeNS(null, "stroke-opacity", "0.5");
-                path.setAttributeNS(null, "stroke-width", "10");
+                path.setAttributeNS(null, "stroke-width", "1");
                 path.setAttributeNS(null, "stroke-linecap", "round");
                 path.setAttributeNS(null, "fill", "none");
                 world.appendChild(path);
 
-                var bbox2 = b2.getBoundingBox();
-                var matrix = new Matrix2D();
-                matrix = matrix.translate(parts[0].x, parts[0].y);
-                matrix = matrix.rotateFromVector(Vector2D.fromPoints(parts[0], parts[3]));
-                var transform = matrix.toString();
+                var alignedBbox = b1.getAlignedBoundingBox();
+                var bbox2 = alignedBbox.bbox;
+                var transform = alignedBbox.transform.toString();
 
                 var rect = document.createElementNS(svgns, "rect");
                 rect.setAttributeNS(null, "x", bbox2.x);
@@ -79,6 +78,7 @@
                 rect.setAttributeNS(null, "height", bbox2.height);
                 rect.setAttributeNS(null, "stroke", "purple");
                 rect.setAttributeNS(null, "stroke-width", "1");
+                rect.setAttributeNS(null, "stroke-opacity", "0.25");
                 rect.setAttributeNS(null, "fill", "none");
                 rect.setAttributeNS(null, "transform", transform);
                 world.appendChild(rect);
@@ -87,11 +87,11 @@
     </defs>
 
     <g id="world" transform="translate(100,100)">
-        <line x1="-50" x2="150" stroke="orange" stroke-width="5" stroke-opacity="0.25"/>
-        <circle r="10" fill="orange" fill-opacity="0.25"/>
+        <line x1="-50" x2="150" stroke="orange" stroke-width="1" stroke-opacity="0.25"/>
+        <circle r="5" fill="orange" fill-opacity="0.25"/>
         <path id="original"
             d="M10,100 C10,0 110,0 110,50"
-            stroke="red" stroke-opacity="0.5" stroke-width="10" stroke-linecap="round"
+            stroke="red" stroke-width="1" stroke-linecap="round" stroke-dasharray="5 2"
             fill="none"/>
     </g>
 
