@@ -1,6 +1,6 @@
 {
   "name": "kld-contours",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A collection of classes to represent and manipulate various vector shapes",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "url": "https://github.com/thelonious/kld-contours/issues"
   },
   "dependencies": {
-    "kld-polynomial": "0.0.2",
-    "kld-affine": "0.0.6"
+    "kld-polynomial": "^0.1.0",
+    "kld-affine": "^0.1.0"
   }
 }
