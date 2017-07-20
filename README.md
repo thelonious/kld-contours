@@ -1,32 +1,60 @@
-kld-contours
-============
+# kld-contours
 
 A collection of classes to represent and manipulate various vector shapes
 
-QuadraticBezier2D
------------------
-* getPointAtParameter
-* splitAtParameter
-* getBernsteinPolynomials
-* getArcLengthPolynomial
-* getParameterFromArcLength
-* getBoundingBox
-* getAlignedBoundingBox
-* getAlignedBezier
-* toString
+## BoundingBox2D
 
-CubicBezier2D
--------------
-* getPointAtParameter
-* splitAtParameter
-* getBernsteinPolynomials
-* getArcLengthPolynomial
-* getParameterFromArcLength
-* getBoundingBox
-* getAlignedBoundingBox
-* getAlignedBezier
-* toString
+- overlaps
+- isEmpty
+- toString
 
-Rectangle2D
------------
-* toString
+## Circle2D
+
+- getBoundingBox
+- tesselate
+
+## CubicBezier2D
+
+- getPointAtParameter
+- splitAtParameter
+- getBernsteinPolynomials
+- getArcLengthPolynomial
+- getParameterFromArcLength
+- getBoundingBox
+- getAlignedBoundingBox
+- getAlignedBezier
+- tesselate
+- toString
+
+## Ellipse2D
+
+- getBoundingBox
+- tesselate
+
+## Line2D
+
+- getBoundingBox
+- tesselate
+
+## Polygon2D
+
+- getBoundingBox
+- tesselate
+
+## QuadraticBezier2D
+
+- getPointAtParameter
+- splitAtParameter
+- getBernsteinPolynomials
+- getArcLengthPolynomial
+- getParameterFromArcLength
+- getBoundingBox
+- getAlignedBoundingBox
+- getAlignedBezier
+- tesselate
+- toString
+
+## Rectangle2D
+
+- getBoundingBox
+- tesselate
