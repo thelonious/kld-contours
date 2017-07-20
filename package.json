@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "kld-polynomial": "^0.1.0",
-    "kld-affine": "^0.1.0"
+    "kld-affine": "^2.0.3"
   }
 }
