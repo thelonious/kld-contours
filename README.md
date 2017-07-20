@@ -11,7 +11,6 @@ A collection of classes to represent and manipulate various vector shapes
 ## Circle2D
 
 - getBoundingBox
-- tesselate
 
 ## CubicBezier2D
 
@@ -29,7 +28,6 @@ A collection of classes to represent and manipulate various vector shapes
 ## Ellipse2D
 
 - getBoundingBox
-- tesselate
 
 ## Line2D
 
