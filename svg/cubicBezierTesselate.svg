@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<svg
+    xmlns="http://www.w3.org/2000/svg" version="1.1"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    onload="go(evt)">
+
+    <defs>
+        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
+        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
+        <script xlink:href="../lib/CubicBezier2D.js"/>
+        <script xlink:href="../lib/Polygon2D.js"/>
+        <script><![CDATA[
+            var svgns = "http://www.w3.org/2000/svg";
+
+            function applyNew(ctor, args) {
+                var newArgs = [null].concat(args);
+                var ctorFunction = ctor.bind.apply(ctor, newArgs);
+
+                return new ctorFunction();
+            }
+
+            function go() {
+                var original = document.getElementById("original");
+                var pathSegList = original.pathSegList;
+                var parts = [];
+
+                for (var i = 0; i < pathSegList.numberOfItems; i++) {
+                    var item = pathSegList.getItem(i);
+                    var cmd = item.pathSegTypeAsLetter;
+
+                    if (cmd == "M") {
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                    else if (cmd == "C") {
+                        parts.push(new Point2D(item.x1, item.y1));
+                        parts.push(new Point2D(item.x2, item.y2));
+                        parts.push(new Point2D(item.x, item.y));
+                    }
+                }
+
+                var b1 = applyNew(CubicBezier2D, parts);
+                var polygon = b1.tesselate();
+                var world = document.getElementById("world");
+
+                var poly = document.createElementNS(svgns, "polyline");
+                poly.setAttributeNS(null, "points", polygon.toString());
+                poly.setAttributeNS(null, "stroke", "white");
+                poly.setAttributeNS(null, "stroke-width", "1");
+                //poly.setAttributeNS(null, "stroke-opacity", "0.75");
+                poly.setAttributeNS(null, "fill", "none");
+                world.appendChild(poly);
+            }
+        ]]></script>
+    </defs>
+
+    <g id="world" transform="translate(100,100)">
+        <path id="original"
+            d="M10,100 C10,0 110,0 110,50"
+            stroke="red" stroke-width="3" stroke-linecap="round"
+            fill="none"/>
+    </g>
+
+</svg>
