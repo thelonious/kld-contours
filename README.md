@@ -22,7 +22,7 @@ A collection of classes to represent and manipulate various vector shapes
 - getBoundingBox
 - getAlignedBoundingBox
 - getAlignedBezier
-- tesselate
+- toPolygon2D
 - toString
 
 ## Ellipse2D
@@ -32,12 +32,12 @@ A collection of classes to represent and manipulate various vector shapes
 ## Line2D
 
 - getBoundingBox
-- tesselate
+- toPolygon2D
 
 ## Polygon2D
 
 - getBoundingBox
-- tesselate
+- toPolygon2D
 
 ## QuadraticBezier2D
 
@@ -49,10 +49,10 @@ A collection of classes to represent and manipulate various vector shapes
 - getBoundingBox
 - getAlignedBoundingBox
 - getAlignedBezier
-- tesselate
+- toPolygon2D
 - toString
 
 ## Rectangle2D
 
 - getBoundingBox
-- tesselate
+- toPolygon2D

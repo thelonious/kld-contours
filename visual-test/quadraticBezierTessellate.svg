@@ -7,7 +7,7 @@
     <defs>
         <script xlink:href="../../kld-affine/lib/Point2D.js"/>
         <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
-        <script xlink:href="../lib/CubicBezier2D.js"/>
+        <script xlink:href="../lib/QuadraticBezier2D.js"/>
         <script xlink:href="../lib/Polygon2D.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
@@ -31,15 +31,14 @@
                     if (cmd == "M") {
                         parts.push(new Point2D(item.x, item.y));
                     }
-                    else if (cmd == "C") {
+                    else if (cmd == "Q") {
                         parts.push(new Point2D(item.x1, item.y1));
-                        parts.push(new Point2D(item.x2, item.y2));
                         parts.push(new Point2D(item.x, item.y));
                     }
                 }
 
-                var b1 = applyNew(CubicBezier2D, parts);
-                var polygon = b1.tesselate();
+                var b1 = applyNew(QuadraticBezier2D, parts);
+                var polygon = b1.toPolygon2D();
                 var world = document.getElementById("world");
 
                 var poly = document.createElementNS(svgns, "polyline");
@@ -55,7 +54,7 @@
 
     <g id="world" transform="translate(100,100)">
         <path id="original"
-            d="M10,100 C10,0 110,0 110,50"
+            d="M10,100 Q10,25 110,50"
             stroke="red" stroke-width="3" stroke-linecap="round"
             fill="none"/>
     </g>
