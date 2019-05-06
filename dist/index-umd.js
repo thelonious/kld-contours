@@ -29,8 +29,8 @@
   /**
    *  BoundingBox2D
    *
-   *  @copyright 2011-2019 Kevin Lindsey
    *  @module BoundingBox2D
+   *  @copyright 2011-2019 Kevin Lindsey
    */
 
   /**
@@ -44,7 +44,7 @@
      *  @param {number} y
      *  @param {number} width
      *  @param {number} height
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
     function BoundingBox2D(x, y, width, height) {
       _classCallCheck(this, BoundingBox2D);
@@ -57,7 +57,7 @@
     /**
      *  overlaps
      *
-     *  @param {BoundingBox2D} that
+     *  @param {module:kld-contours.BoundingBox2D} that
      *  @returns {boolean}
      */
 
@@ -102,8 +102,8 @@
   /*#__PURE__*/
   function () {
     /*
-     *  @param {Array<Point2D>} points
-     *  @returns {Polygon2D}
+     *  @param {Array<module:kld-affine.Point2D>} points
+     *  @returns {module:kld-contours.Polygon2D}
      */
     function Polygon2D(points) {
       _classCallCheck(this, Polygon2D);
@@ -113,7 +113,7 @@
     /**
      *  getBoundingBox
      *
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
 
 
@@ -138,7 +138,7 @@
       /**
        *  toPolygon2D
        *
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -173,9 +173,9 @@
   function () {
     /**
      *  @class
-     *  @param {Point2D} center
+     *  @param {module:kld-affine.Point2D} center
      *  @param {number} radius
-     *  @returns {Circle2D}
+     *  @returns {module:kld-contours.Circle2D}
      */
     function Circle2D(center, radius) {
       _classCallCheck(this, Circle2D);
@@ -186,7 +186,7 @@
     /**
      *  getBoundingBox
      *
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
 
 
@@ -198,7 +198,7 @@
       /**
        *  toPolygon2D
        *
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -219,11 +219,11 @@
   /*#__PURE__*/
   function () {
     /**
-     *  @param {Point2D} p1
-     *  @param {Point2D} p2
-     *  @param {Point2D} p3
-     *  @param {Point2D} p4
-     *  @returns {CubicBezier2D}
+     *  @param {module:kld-affine.Point2D} p1
+     *  @param {module:kld-affine.Point2D} p2
+     *  @param {module:kld-affine.Point2D} p3
+     *  @param {module:kld-affine.Point2D} p4
+     *  @returns {module:kld-contours.CubicBezier2D}
      */
     function CubicBezier2D(p1, p2, p3, p4) {
       _classCallCheck(this, CubicBezier2D);
@@ -237,7 +237,7 @@
      *  getPointAtParameter
      *
      *  @param {number} t
-     *  @returns {Point2D}
+     *  @returns {module:kld-affine.Point2D}
      */
 
 
@@ -258,7 +258,7 @@
        *  splitAtParameter
        *
        *  @param {number} t
-       *  @returns {Array<CubicBezier2D>}
+       *  @returns {Array<module:kld-contours.CubicBezier2D>}
        */
 
     }, {
@@ -278,7 +278,7 @@
       /**
        *  getBernsteinPolynomials
        *
-       *  @returns {{x: Polynomial, y: Polynomial}}
+       *  @returns {{x: module:kld-polynomial.Polynomial, y: module:kld-polynomial.Polynomial}}
        */
 
     }, {
@@ -315,7 +315,7 @@
       /**
        *  getArcLengthPolynomial
        *
-       *  @returns {SqrtPolynomial}
+       *  @returns {module:kld-polynomial.SqrtPolynomial}
        */
 
     }, {
@@ -395,7 +395,7 @@
       /**
        *  getBoundingBox
        *
-       *  @returns {BoundingBox2D}
+       *  @returns {module:kld-contours.BoundingBox2D}
        */
 
     }, {
@@ -422,7 +422,7 @@
       /**
        *  getAlignedBoundingBox
        *
-       *  @returns {{ bbox: BoundingBox2D, transform: Matrix2D }}
+       *  @returns {{ bbox: module:kld-contours.BoundingBox2D, transform: module:kld-affine.Matrix2D }}
        */
 
     }, {
@@ -436,7 +436,7 @@
       /**
        *  getAlignedBezier
        *
-       *  @returns {CubicBezier2D}
+       *  @returns {module:kld-contours.CubicBezier2D}
        */
 
     }, {
@@ -453,7 +453,7 @@
        *  toPolygon2D
        *
        *  @param {number} [flatness]
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -537,10 +537,10 @@
   /*#__PURE__*/
   function () {
     /**
-     *  @param {Point2D} center
+     *  @param {module:kld-affine.Point2D} center
      *  @param {number} radiusX
      *  @param {number} radiusY
-     *  @returns {Ellipse2D}
+     *  @returns {module:kld-contours.Ellipse2D}
      */
     function Ellipse2D(center, radiusX, radiusY) {
       _classCallCheck(this, Ellipse2D);
@@ -552,7 +552,7 @@
     /**
      *  getBoundingBox
      *
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
 
 
@@ -564,7 +564,7 @@
       /**
        *  toPolygon2D
        *
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -585,9 +585,9 @@
   /*#__PURE__*/
   function () {
     /**
-     *  @param {Point2D} p1
-     *  @param {Point2D} p2
-     *  @returns {Line2D}
+     *  @param {module:kld-affine.Point2D} p1
+     *  @param {module:kld-affine.Point2D} p2
+     *  @returns {module:kld-contours.Line2D}
      */
     function Line2D(p1, p2) {
       _classCallCheck(this, Line2D);
@@ -598,7 +598,7 @@
     /**
      *  getBoundingBox
      *
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
 
 
@@ -612,7 +612,7 @@
       /**
        *  toPolygon2D
        *
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -633,10 +633,10 @@
   /*#__PURE__*/
   function () {
     /**
-     *  @param {Point2D} p1
-     *  @param {Point2D} p2
-     *  @param {Point2D} p3
-     *  @returns {QuadraticBezier2D}
+     *  @param {module:kld-affine.Point2D} p1
+     *  @param {module:kld-affine.Point2D} p2
+     *  @param {module:kld-affine.Point2D} p3
+     *  @returns {module:kld-contours.QuadraticBezier2D}
      */
     function QuadraticBezier2D(p1, p2, p3) {
       _classCallCheck(this, QuadraticBezier2D);
@@ -649,7 +649,7 @@
      *  getPointAtParameter
      *
      *  @param {number} t
-     *  @returns {Point2D}
+     *  @returns {module:kld-affine.Point2D}
      */
 
 
@@ -666,7 +666,7 @@
        *  splitAtParameter
        *
        *  @param {number} t
-       *  @returns {Array<QuadraticBezier2D>}
+       *  @returns {Array<module:kld-contours.QuadraticBezier2D>}
        */
 
     }, {
@@ -682,7 +682,7 @@
       /**
        *  getBernsteinPolynomials
        *
-       *  @returns {{x: Polynomial, y: Polynomial}}
+       *  @returns {{x: module:kld-polynomial.Polynomial, y: module:kld-polynomial.Polynomial}}
        */
 
     }, {
@@ -704,7 +704,7 @@
       /**
        *  getArcLengthPolynomial
        *
-       *  @returns {SqrtPolynomial}
+       *  @returns {module:kld-polynomial.SqrtPolynomial}
        */
 
     }, {
@@ -774,7 +774,7 @@
       /**
        *  getBoundingBox
        *
-       *  @returns {BoundingBox2D}
+       *  @returns {module:kld-contours.BoundingBox2D}
        */
 
     }, {
@@ -799,7 +799,7 @@
       /**
        *  getAlignedBoundingBox
        *
-       *  @returns {{ bbox: BoundingBox2D, transform: Matrix2D }}
+       *  @returns {{ bbox: module:kld-contours.BoundingBox2D, transform: module:kld-affine.Matrix2D }}
        */
 
     }, {
@@ -813,7 +813,7 @@
       /**
        *  getAlignedBezier
        *
-       *  @returns {QuadraticBezier2D}
+       *  @returns {module:kld-contours.QuadraticBezier2D}
        */
 
     }, {
@@ -830,7 +830,7 @@
        *  toPolygon2D
        *
        *  @param {number} [flatness]
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
@@ -906,7 +906,7 @@
      *  @param {number} y
      *  @param {number} width
      *  @param {number} height
-     *  @returns {Rectangle2D}
+     *  @returns {module:kld-contours.Rectangle2D}
      */
     function Rectangle2D(x, y, width, height) {
       _classCallCheck(this, Rectangle2D);
@@ -919,7 +919,7 @@
     /**
      *  getBoundingBox
      *
-     *  @returns {BoundingBox2D}
+     *  @returns {module:kld-contours.BoundingBox2D}
      */
 
 
@@ -931,7 +931,7 @@
       /**
        *  toPolygon2D
        *
-       *  @returns {Polygon2D}
+       *  @returns {module:kld-contours.Polygon2D}
        */
 
     }, {
