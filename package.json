@@ -1,6 +1,6 @@
 {
   "name": "kld-contours",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A collection of classes to represent and manipulate various vector shapes",
   "author": {
     "name": "Kevin Lindsey",
@@ -62,8 +62,8 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "kld-polynomial": "^0.1.0",
-    "kld-affine": "^2.0.3"
+    "kld-polynomial": "^0.2.0",
+    "kld-affine": "^2.1.0"
   },
   "engines": {
     "node": ">= 10.15.3"
