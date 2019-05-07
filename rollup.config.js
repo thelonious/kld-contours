@@ -1,5 +1,6 @@
 import babel from "rollup-plugin-babel";
 import {terser} from "rollup-plugin-terser";
+import resolve from "rollup-plugin-node-resolve";
 
 /**
  * @external RollupConfig
@@ -28,7 +29,8 @@ function getRollupObject({minifying, format = "umd"} = {}) {
                 presets: [
                     ["@babel/env", {modules: false}]
                 ]
-            })
+            }),
+            resolve()
         ]
     };
     if (minifying) {
