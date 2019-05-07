@@ -1,6 +1,6 @@
 {
   "name": "kld-contours",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of classes to represent and manipulate various vector shapes",
   "author": {
     "name": "Kevin Lindsey",

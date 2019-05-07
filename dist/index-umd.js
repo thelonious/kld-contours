@@ -27,7 +27,7 @@
   }
 
   /**
-   *  BoundingBox2D
+   *  BoundingBox2D.js
    *
    *  @module BoundingBox2D
    *  @copyright 2011-2019 Kevin Lindsey
@@ -101,7 +101,7 @@
   var Polygon2D =
   /*#__PURE__*/
   function () {
-    /*
+    /**
      *  @param {Array<module:kld-affine.Point2D>} points
      *  @returns {module:kld-contours.Polygon2D}
      */
@@ -172,7 +172,6 @@
   /*#__PURE__*/
   function () {
     /**
-     *  @class
      *  @param {module:kld-affine.Point2D} center
      *  @param {number} radius
      *  @returns {module:kld-contours.Circle2D}
