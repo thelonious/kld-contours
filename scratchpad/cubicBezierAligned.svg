@@ -2,17 +2,15 @@
 <svg
     xmlns="http://www.w3.org/2000/svg" version="1.1"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    onload="sayHello(evt)">
+    onload="go(evt)">
 
     <defs>
-        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
-        <script xlink:href="../../kld-polynomial/lib/Polynomial.js"/>
-        <script xlink:href="../lib/CubicBezier2D.js"/>
-        <script xlink:href="../lib/BoundingBox2D.js"/>
+        <script xlink:href="../dist/index-umd.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
+            var CubicBezier2D = KldContours.CubicBezier2D;
+            var BoundingBox2D = KldContours.BoundingBox2D;
+            var Point2D = KldContours.Point2D;
 
             function applyNew(ctor, args) {
                 var newArgs = [null].concat(args);
@@ -21,7 +19,7 @@
                 return new ctorFunction();
             }
 
-            function sayHello() {
+            function go() {
                 var original = document.getElementById("original");
                 var pathSegList = original.pathSegList;
                 var parts = [];

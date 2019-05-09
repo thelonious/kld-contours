@@ -5,12 +5,11 @@
     onload="go(evt)">
 
     <defs>
-        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
-        <script xlink:href="../lib/CubicBezier2D.js"/>
-        <script xlink:href="../lib/Polygon2D.js"/>
+        <script xlink:href="../dist/index-umd.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
+            var CubicBezier2D = KldContours.CubicBezier2D;
+            var Point2D = KldContours.Point2D;
 
             function applyNew(ctor, args) {
                 var newArgs = [null].concat(args);

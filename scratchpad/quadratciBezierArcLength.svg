@@ -9,16 +9,12 @@
             <circle r="3" fill="none" stroke="green" stroke-width="1"/>
             <circle r="1" fill="black"/>
         </g>
-        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
-        <script xlink:href="../../kld-polynomial/lib/Polynomial.js"/>
-        <script xlink:href="../../kld-polynomial/lib/SqrtPolynomial.js"/>
-        <script xlink:href="../lib/QuadraticBezier2D.js"/>
-        <script xlink:href="../lib/BoundingBox2D.js"/>
+        <script xlink:href="../dist/index-umd.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
             var xlinkns = "http://www.w3.org/1999/xlink";
+            var QuadraticBezier2D = KldContours.QuadraticBezier2D;
+            var Point2D = KldContours.Point2D;
             var world;
 
             function init() {

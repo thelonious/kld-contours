@@ -2,26 +2,22 @@
 <svg
     xmlns="http://www.w3.org/2000/svg" version="1.1"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    onload="init(evt)">
+    onload="go(evt)">
 
     <defs>
         <g id="vertex">
             <circle r="3" fill="none" stroke="green" stroke-width="1"/>
             <circle r="1" fill="black"/>
         </g>
-        <script xlink:href="../../kld-affine/lib/Point2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Vector2D.js"/>
-        <script xlink:href="../../kld-affine/lib/Matrix2D.js"/>
-        <script xlink:href="../../kld-polynomial/lib/Polynomial.js"/>
-        <script xlink:href="../../kld-polynomial/lib/SqrtPolynomial.js"/>
-        <script xlink:href="../lib/CubicBezier2D.js"/>
-        <script xlink:href="../lib/BoundingBox2D.js"/>
+        <script xlink:href="../dist/index-umd.js"/>
         <script><![CDATA[
             var svgns = "http://www.w3.org/2000/svg";
             var xlinkns = "http://www.w3.org/1999/xlink";
+            var CubicBezier2D = KldContours.CubicBezier2D;
+            var Point2D = KldContours.Point2D;
             var world;
 
-            function init() {
+            function go() {
                 world = document.getElementById("world");
 
                 var original = document.getElementById("original");
