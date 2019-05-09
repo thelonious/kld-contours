@@ -51,3 +51,40 @@ export {default as QuadraticBezier2D} from "./lib/QuadraticBezier2D.js";
  *  @implements {module:Rectangle2D~Rectangle2D}
  */
 export {default as Rectangle2D} from "./lib/Rectangle2D.js";
+
+/**
+* @external Point2D
+*/
+
+/**
+* @external Vector2D
+*/
+
+/**
+* @external Matrix2D
+*/
+
+/**
+ * @class Point2D
+ * @memberof module:kld-intersections
+ * @implements {external:Point2D}
+ */
+export {Point2D} from "kld-affine";
+
+/**
+ * @class Vector2D
+ * @memberof module:kld-intersections
+ * @implements {external:Vector2D}
+ */
+export {Vector2D} from "kld-affine";
+
+/**
+ * @class Matrix2D
+ * @memberof module:kld-intersections
+ * @implements {external:Matrix2D}
+ */
+export {Matrix2D} from "kld-affine";
+
+/**
+* @external Polynomial
+*/
